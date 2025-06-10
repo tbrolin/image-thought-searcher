@@ -73,7 +73,7 @@ const ImageUpload = ({ onImageUpload }: ImageUploadProps) => {
 
   return (
     <Card 
-      className={`p-8 border-2 border-dashed transition-all duration-300 cursor-pointer hover:shadow-lg ${
+      className={`p-6 border-2 border-dashed transition-all duration-300 cursor-pointer ${
         isDragOver 
           ? 'border-primary bg-primary/5' 
           : 'border-gray-300 hover:border-primary/50'
@@ -83,19 +83,19 @@ const ImageUpload = ({ onImageUpload }: ImageUploadProps) => {
       onDragLeave={handleDragLeave}
     >
       <div className="text-center space-y-4">
-        <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+        <div className="mx-auto w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
           {isDragOver ? (
-            <ImageIcon className="w-8 h-8 text-white" />
+            <ImageIcon className="w-6 h-6 text-white" />
           ) : (
-            <Upload className="w-8 h-8 text-white" />
+            <Upload className="w-6 h-6 text-white" />
           )}
         </div>
         
         <div>
-          <h3 className="text-lg font-semibold mb-2">
+          <h3 className="text-base font-semibold mb-2">
             {isDragOver ? 'Drop your image here' : 'Upload an image to analyze'}
           </h3>
-          <p className="text-muted-foreground mb-4">
+          <p className="text-sm text-muted-foreground mb-4">
             Drag and drop an image file, or click to browse
           </p>
         </div>
