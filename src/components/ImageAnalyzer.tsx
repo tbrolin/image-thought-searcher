@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import ImageUpload from "./ImageUpload";
 import SearchTerms from "./SearchTerms";
@@ -30,34 +31,34 @@ const ImageAnalyzer = () => {
   const [isUploadDialogOpen, setIsUploadDialogOpen] = useState(false);
   const [categories, setCategories] = useState<Category[]>([
     {
-      id: "nature",
-      name: "Nature & Landscape",
-      keywords: ["landscape", "mountain", "forest", "ocean", "sunset", "wildlife", "trees", "flowers", "scenic", "natural"]
+      id: "womens-clothing",
+      name: "Women's Clothing",
+      keywords: ["dress", "blouse", "skirt", "jeans", "sweater", "cardigan", "blazer", "jacket", "coat", "trousers"]
     },
     {
-      id: "technology",
-      name: "Technology",
-      keywords: ["computer", "smartphone", "software", "digital", "innovation", "tech", "device", "electronic", "modern", "gadget"]
+      id: "mens-clothing",
+      name: "Men's Clothing",
+      keywords: ["shirt", "polo", "hoodie", "jeans", "chinos", "suit", "blazer", "jacket", "coat", "sweater"]
     },
     {
-      id: "food",
-      name: "Food & Dining",
-      keywords: ["restaurant", "cuisine", "cooking", "recipe", "delicious", "meal", "dining", "ingredients", "chef", "gourmet"]
+      id: "accessories",
+      name: "Accessories",
+      keywords: ["bag", "handbag", "belt", "scarf", "hat", "gloves", "jewelry", "watch", "sunglasses", "wallet"]
     },
     {
-      id: "fashion",
-      name: "Fashion & Style",
-      keywords: ["clothing", "style", "fashion", "trendy", "outfit", "designer", "apparel", "accessories", "wardrobe", "chic"]
+      id: "footwear",
+      name: "Footwear",
+      keywords: ["sneakers", "boots", "heels", "flats", "sandals", "loafers", "oxfords", "trainers", "pumps", "slides"]
     },
     {
-      id: "business",
-      name: "Business & Work",
-      keywords: ["office", "professional", "meeting", "corporate", "business", "workspace", "team", "productivity", "strategy", "success"]
+      id: "outerwear",
+      name: "Outerwear",
+      keywords: ["coat", "jacket", "blazer", "cardigan", "puffer", "parka", "trench", "bomber", "denim", "leather"]
     },
     {
-      id: "travel",
-      name: "Travel & Adventure",
-      keywords: ["travel", "vacation", "destination", "adventure", "tourism", "journey", "exploration", "culture", "landmark", "exotic"]
+      id: "knitwear",
+      name: "Knitwear",
+      keywords: ["sweater", "jumper", "cardigan", "pullover", "turtleneck", "hoodie", "knit", "cashmere", "wool", "cotton"]
     }
   ]);
 
@@ -68,19 +69,19 @@ const ImageAnalyzer = () => {
       // Simulate AI analysis - in a real app, this would call an AI service
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Mock analysis result based on categories
+      // Mock analysis result with fashion search terms
       const mockResult: AnalysisResult = {
         searchTerms: [
-          "modern architecture",
-          "urban design", 
-          "contemporary building",
-          "glass facade",
-          "city skyline",
-          "structural engineering"
+          "blazer",
+          "jacket", 
+          "formal",
+          "navy",
+          "tailored",
+          "business"
         ],
         confidence: 0.92,
-        categories: ["Architecture", "Urban Planning", "Design"],
-        description: "This image appears to show modern architectural elements with clean lines and contemporary design features."
+        categories: ["Men's Clothing", "Outerwear", "Business"],
+        description: "This image appears to show a navy blazer or formal jacket with tailored fit, suitable for business or formal occasions."
       };
       
       setAnalysisResult(mockResult);
@@ -106,18 +107,18 @@ const ImageAnalyzer = () => {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      // Mock search functionality - generate search terms based on query
+      // Mock search functionality - generate fashion search terms based on query
       const mockResult: AnalysisResult = {
         searchTerms: [
           searchQuery,
-          `${searchQuery} related`,
-          `${searchQuery} concept`,
-          `${searchQuery} ideas`,
-          `${searchQuery} trends`
+          "clothing",
+          "fashion",
+          "style",
+          "apparel"
         ],
         confidence: 0.85,
         categories: ["Search Results"],
-        description: `Search results for: ${searchQuery}`
+        description: `Fashion search results for: ${searchQuery}`
       };
       setAnalysisResult(mockResult);
       setUploadedImage(null);
