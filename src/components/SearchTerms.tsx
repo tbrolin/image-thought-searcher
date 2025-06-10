@@ -2,7 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Copy, Download, Loader2 } from "lucide-react";
+import { Copy, Download, Loader2, ExternalLink } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { AnalysisResult } from "./ImageAnalyzer";
 
@@ -40,6 +40,19 @@ const SearchTerms = ({ result, isAnalyzing }: SearchTermsProps) => {
     toast({
       title: "Download started",
       description: "Analysis results have been downloaded",
+    });
+  };
+
+  const searchOnArket = () => {
+    if (!result) return;
+    
+    const searchTerms = result.searchTerms.join(' ');
+    const searchUrl = `https://www.arket.com/en-dk/search?search=${encodeURIComponent(searchTerms)}`;
+    window.open(searchUrl, '_blank');
+    
+    toast({
+      title: "Searching on Arket",
+      description: "Opening Arket search in a new tab",
     });
   };
 
@@ -87,6 +100,14 @@ const SearchTerms = ({ result, isAnalyzing }: SearchTermsProps) => {
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download
+              </Button>
+              <Button
+                size="sm"
+                onClick={searchOnArket}
+                className="bg-primary hover:bg-primary/90"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Search on Arket
               </Button>
             </div>
           </CardTitle>
