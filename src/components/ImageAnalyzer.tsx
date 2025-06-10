@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import ImageUpload from "./ImageUpload";
 import SearchTerms from "./SearchTerms";
@@ -85,6 +84,8 @@ const ImageAnalyzer = () => {
       };
       
       setAnalysisResult(mockResult);
+      // Auto-fill search field with the first search term
+      setSearchQuery(mockResult.searchTerms[0] || "");
     } catch (error) {
       console.error("Analysis failed:", error);
     } finally {
